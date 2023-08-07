@@ -72,11 +72,11 @@ class _WorldStatesState extends State<WorldStates>
                             PieChart(
                               dataMap: {
                                 "Total": double.parse(
-                                    snapshot.data!.cases!.toString()),
+                                    //try calling response here  from api),
                                 "Recovered": double.parse(
-                                    snapshot.data!.recovered.toString()),
+                                  //try calling response here  from api  ),
                                 "Deaths": double.parse(
-                                    snapshot.data!.deaths.toString()),
+                                   //try calling response here  from api),
                               },
                               animationDuration: Duration(milliseconds: 1200),
                               chartLegendSpacing: 32,
