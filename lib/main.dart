@@ -15,9 +15,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.blue,
-      ),
+          brightness: Brightness.dark,
+          primarySwatch: Colors.blue,
+          appBarTheme: AppBarTheme(
+              centerTitle: true, color: Color.fromARGB(255, 76, 23, 175))),
       home: const SplashScreen(),
     );
   }

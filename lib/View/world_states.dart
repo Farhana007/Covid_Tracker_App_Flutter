@@ -4,12 +4,13 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:covid_tracker_app/ViewModel/world_sates_view_model.dart';
 import 'package:covid_tracker_app/View/countries_list_screen.dart';
-import 'package:covid_tracker_app/Model/world_states.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class WorldStates extends StatefulWidget {
   const WorldStates({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _WorldStatesState createState() => _WorldStatesState();
 }
 
@@ -26,12 +27,12 @@ class _WorldStatesState extends State<WorldStates>
     super.dispose();
   }
 
-  WorldStatesViewModel newsListViewModel = WorldStatesViewModel();
+  WorldStatesViewModel newListViewModel = WorldStatesViewModel();
 
   final colorList = <Color>[
-    Color(0xff4285F4),
-    Color(0xff1aa260),
-    Color(0xffde5246),
+    Color.fromARGB(255, 12, 23, 135),
+    Color.fromARGB(255, 6, 121, 25),
+    Color.fromARGB(255, 241, 63, 47),
   ];
 
   @override
@@ -42,25 +43,28 @@ class _WorldStatesState extends State<WorldStates>
         return true;
       },
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .01,
-                ),
-                FutureBuilder(
-                    future: newsListViewModel.fetchWorldRecords(),
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .01,
+              ),
+              Expanded(
+                child: FutureBuilder(
+                    future: newListViewModel.fetchWorldRecords(),
                     builder: (context, snapshot) {
                       if (!snapshot.hasData) {
-                        return Expanded(
-                          flex: 1,
-                          child: SpinKitFadingCircle(
-                            color: Colors.white,
-                            size: 50.0,
-                            controller: _controller,
-                          ),
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SpinKitFadingCircle(
+                              color: Color.fromARGB(255, 35, 12, 127),
+                              size: 50.0,
+                              controller: _controller,
+                            ),
+                          ],
                         );
                       } else {
                         return Column(
@@ -87,8 +91,8 @@ class _WorldStatesState extends State<WorldStates>
                                 legendPosition: LegendPosition.left,
                                 showLegends: true,
                                 legendTextStyle: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 17, 10, 112)),
                               ),
                               chartValuesOptions: const ChartValuesOptions(
                                 showChartValueBackground: true,
@@ -103,8 +107,12 @@ class _WorldStatesState extends State<WorldStates>
                                   vertical:
                                       MediaQuery.of(context).size.height * .06),
                               child: Card(
+                                elevation: 5,
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                shadowColor: Colors.deepPurpleAccent,
                                 child: Column(
                                   children: [
+                                    20.heightBox,
                                     ReusableRow(
                                         title: 'Total Cases',
                                         value: snapshot.data!.cases.toString()),
@@ -132,6 +140,7 @@ class _WorldStatesState extends State<WorldStates>
                                         title: 'Today Recovered',
                                         value: snapshot.data!.todayRecovered
                                             .toString()),
+                                    10.heightBox
                                   ],
                                 ),
                               ),
@@ -144,13 +153,17 @@ class _WorldStatesState extends State<WorldStates>
                                         builder: (context) =>
                                             const CountriesListScreen()));
                               },
-                              child: Container(
-                                height: 50,
-                                decoration: BoxDecoration(
-                                    color: Color(0xff1aa260),
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: const Center(
-                                  child: Text('Track Countries'),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 12),
+                                child: Container(
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 13, 23, 111),
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: const Center(
+                                    child: Text('Track Countries'),
+                                  ),
                                 ),
                               ),
                             )
@@ -158,8 +171,8 @@ class _WorldStatesState extends State<WorldStates>
                         );
                       }
                     }),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -175,19 +188,27 @@ class ReusableRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text(title), Text(value)],
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Divider()
-        ],
-      ),
-    );
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  title.text.white.semiBold.size(15).makeCentered(),
+                  value.text.white.size(17).makeCentered(),
+                ],
+              ),
+            ),
+          ],
+        )
+            .box
+            .rounded
+            .shadow
+            .size(MediaQuery.sizeOf(context).width * 1, 50)
+            .color(Color.fromARGB(255, 63, 79, 199))
+            .shadow
+            .make());
   }
 }

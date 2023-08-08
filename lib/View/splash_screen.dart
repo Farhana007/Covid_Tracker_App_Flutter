@@ -3,12 +3,16 @@ import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:covid_tracker_app/View/world_states.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 import 'dart:math' as math;
+
+import '../colors_const.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _SplashScreenState createState() => _SplashScreenState();
 }
 
@@ -38,6 +42,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -70,8 +75,16 @@ class _SplashScreenState extends State<SplashScreen>
                 child: Text(
                   'Covid-19\nTracker App',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-                ))
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 21, 31, 125),
+                      fontSize: 25),
+                )),
+            50.heightBox,
+            "Developed By Farhana"
+                .text
+                .color(Color.fromARGB(255, 84, 23, 175))
+                .make()
           ],
         ),
       ),
