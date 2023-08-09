@@ -124,7 +124,27 @@ class _CountriesListScreenState extends State<CountriesListScreen> {
                                           MaterialPageRoute(
                                               builder: (context) =>
                                                   DetailScreen(
-                                                    //try calling response from api here 
+                                                    image: snapshot.data![index]
+                                                        ['countryInfo']['flag'],
+                                                    name: snapshot.data![index]
+                                                        ['country'],
+                                                    totalCases: snapshot
+                                                        .data![index]['cases'],
+                                                    totalRecovered:
+                                                        snapshot.data![index]
+                                                            ['recovered'],
+                                                    totalDeaths: snapshot
+                                                        .data![index]['deaths'],
+                                                    active: snapshot
+                                                        .data![index]['active'],
+                                                    test: snapshot.data![index]
+                                                        ['tests'],
+                                                    todayRecovered:
+                                                        snapshot.data![index]
+                                                            ['todayRecovered'],
+                                                    critical:
+                                                        snapshot.data![index]
+                                                            ['critical'], 
                                                     
                                                   )));
                                     },
