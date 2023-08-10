@@ -1,16 +1,36 @@
-# covid_tracker_app
+<h1 align="center" id="title">Covid-19 Tracker</h1>
 
-A new Flutter project.
+<p id="description">This is an Covid-19 World wide tracker app. It contains worldwide stats on Covid and Also Country wise Individual Stats..</p>
 
-## Getting Started
+<h2>Project Screenshots:</h2>
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  
+  
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+*   Smooth UI
+*   Shimmer and Spinkit Effect
+*   Search Option
+*   Country Wise Stats
+*   World Stats
+
+
+![Splash Screen(Covid-App)](https://github.com/Farhana007/Covid_Tracker_App_Flutter/assets/106755038/b309d54d-7a51-4c6d-b12c-88e99166d57e)
+
+![Api Loading SpinKit](https://github.com/Farhana007/Covid_Tracker_App_Flutter/assets/106755038/24986ed7-9e06-4b49-a94e-1dd40e85b332)
+
+![World Stats](https://github.com/Farhana007/Covid_Tracker_App_Flutter/assets/106755038/b3bac949-d264-487c-943e-578a946478fc)
+
+![Shimmer Effect](https://github.com/Farhana007/Covid_Tracker_App_Flutter/assets/106755038/d0879e6c-71f0-49b2-bb45-a243cf437c66)
+
+![Country List](https://github.com/Farhana007/Covid_Tracker_App_Flutter/assets/106755038/8f9f798b-5cd4-48c4-a6f4-a1af36f0328e)
+
+![Country Wise Stats](https://github.com/Farhana007/Covid_Tracker_App_Flutter/assets/106755038/76fb7bcf-aeb9-411a-9b6b-17837c2e9dac)
+
+
+
